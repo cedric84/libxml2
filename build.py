@@ -32,6 +32,7 @@ class host_t:
 			"--prefix=" + str(install_pfx),
 			"--enable-shared" if (False != self.build_shared_libs) else "--disable-shared",
 			"--enable-static" if (False == self.build_shared_libs) else "--disable-static",
+			"--with-iconv=" + str(install_pfx),
 			"--without-python",
 			*args
 		)
