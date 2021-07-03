@@ -34,6 +34,8 @@ class host_t:
 			"--enable-static" if (False == self.build_shared_libs) else "--disable-static",
 			"--with-iconv=" + str(install_pfx),
 			"--without-python",
+			"--without-zlib",
+			"--without-lzma",
 			*args
 		)
 
@@ -68,7 +70,20 @@ class host_clg_pandeb9_t(host_t):
 		configure_arg_arr	= [
 			[
 				"x86_64-linux",
-				"--with-pic",
+				"--with-pic=yes",
+				"CFLAGS=-Wall -Werror",
+				"LDFLAGS=-Wl,-rpath,\\$$ORIGIN/../lib",
+			],
+			[
+				"i686-mingw",
+				"--host=i686-w64-mingw32",
+				"CC=i686-w64-mingw32-gcc",
+				"CFLAGS=-Wall -Werror",
+			],
+			[
+				"x86_64-mingw",
+				"--host=x86_64-w64-mingw32",
+				"CC=x86_64-w64-mingw32-gcc",
 				"CFLAGS=-Wall -Werror",
 			],
 		]
