@@ -17,7 +17,7 @@ jobs:
       - name: checkout libiconv
         uses: actions/checkout@v2
         with:
-          repository: cedric84/libiconv.git
+          repository: cedric84/libiconv
 
       #---Checkout current repository---#
       - name: checkout
