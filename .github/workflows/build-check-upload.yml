@@ -13,16 +13,16 @@ jobs:
           sudo apt-get -qqy update
           sudo apt-get -qqy install mingw-w64
 
+      #---Checkout current repository---#
+      - name: checkout
+        uses: actions/checkout@v2
+
       #---Checkout dependencies---#
       - name: checkout libiconv
         uses: actions/checkout@v2
         with:
           repository: cedric84/libiconv
           path: libiconv
-
-      #---Checkout current repository---#
-      - name: checkout
-        uses: actions/checkout@v2
 
       #---Build---#
       - name: build
